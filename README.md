@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Krios Landing Page
 
-## Getting Started
+Uma landing page moderna e profissional para empresa de construção civil, desenvolvida com Next.js e Tailwind CSS.
 
-First, run the development server:
+## Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Design Moderno e Responsivo**
+  - Interface elegante e profissional
+  - Otimizado para todos os dispositivos
+  - Tema escuro com efeitos de vidro (glassmorphism)
+  - Animações suaves com Framer Motion
+
+- **Seções Principais**
+  - Header fixo com navegação
+  - Hero section com estatísticas
+  - Pilares da empresa
+  - Serviços oferecidos
+  - Portfólio de projetos com carrosséis
+  - Seção de contato
+
+- **Portfólio Interativo**
+  - Carrosséis por categoria (Residencial, Industrial, Comercial)
+  - Páginas dedicadas para cada categoria
+  - Páginas detalhadas de projetos individuais
+  - Galeria de imagens com miniaturas
+
+- **Otimização**
+  - SEO otimizado
+  - Carregamento de imagens otimizado
+  - Performance otimizada
+  - Código limpo e bem organizado
+
+## Tecnologias
+
+- [Next.js 14](https://nextjs.org/) - Framework React
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS
+- [Framer Motion](https://www.framer.com/motion/) - Biblioteca de animações
+- [TypeScript](https://www.typescriptlang.org/) - Tipagem estática
+- [React Icons](https://react-icons.github.io/react-icons/) - Ícones
+
+## Estrutura do Projeto
+
+```
+src/
+├── app/
+│   ├── projetos/
+│   │   ├── [category]/
+│   │   │   └── [id]/
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── Header.tsx
+│   ├── HeroSection.tsx
+│   ├── PillarsSection.tsx
+│   ├── ProjectsSection.tsx
+│   ├── ServicesSection.tsx
+│   ├── ContactSection.tsx
+│   └── ProjectCarousel.tsx
+└── styles/
+    └── globals.css
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Começando
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/krios-landing.git
+cd krios-landing
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Instale as dependências:
+```bash
+npm install
+# ou
+yarn install
+```
 
-## Learn More
+3. Inicie o servidor de desenvolvimento:
+```bash
+npm run dev
+# ou
+yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Configuração
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Imagens**: Adicione suas imagens na pasta `public/`:
+   - `public/images/` - Imagens gerais
+   - `public/projects/` - Imagens de projetos
 
-## Deploy on Vercel
+2. **Projetos**: Atualize os dados dos projetos em:
+   - `src/components/ProjectsSection.tsx`
+   - `src/app/projetos/[category]/page.tsx`
+   - `src/app/projetos/[category]/[id]/page.tsx`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Responsividade
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+O site é totalmente responsivo e otimizado para:
+- Desktops (1200px+)
+- Tablets (768px - 1199px)
+- Smartphones (320px - 767px)
+
+## Deploy
+
+O projeto pode ser facilmente deployado na [Vercel](https://vercel.com):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/seu-usuario/krios-landing)
+
+## Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## Contribuindo
+
+1. Faça o fork do projeto
+2. Crie sua feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request

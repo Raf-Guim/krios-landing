@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import ProjectCarousel from './ProjectCarousel'
 
-const categories = ['Residenciais', 'Industriais', 'Comerciais']
+// const categories = ['Residenciais', 'Industriais', 'Comerciais']
 
 const projects = {
   Residenciais: [

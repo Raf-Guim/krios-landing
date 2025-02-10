@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaPhone, FaWhatsapp } from 'react-icons/fa'
+import { FaWhatsapp } from 'react-icons/fa'
 
 const stats = [
   { label: 'Obras entregues', value: '150+' },

@@ -7,7 +7,23 @@ import { useParams } from 'next/navigation'
 import { useState } from 'react'
 
 // This would typically come from an API or database
-const projectsData = {
+const projectsData: {
+  [K in 'residenciais' | 'industriais' | 'comerciais']: {
+    [key: string]: {
+      title: string
+      description: string
+      fullDescription: string
+      location: string
+      area: string
+      year: string
+      features: string[]
+      images: string[]
+      specifications: {
+        [key: string]: string
+      }
+    }
+  }
+} = {
   residenciais: {
     'residencial-1': {
       title: 'Condomínio Luxury',
