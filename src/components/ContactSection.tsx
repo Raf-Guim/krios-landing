@@ -4,9 +4,9 @@ import { motion } from 'framer-motion'
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa'
 
 const socialLinks = [
-  { icon: FaLinkedin, href: 'https://linkedin.com/company/krios', label: 'LinkedIn' },
-  { icon: FaInstagram, href: 'https://instagram.com/krios', label: 'Instagram' },
-  { icon: FaFacebook, href: 'https://facebook.com/krios', label: 'Facebook' },
+  { icon: FaLinkedin, href: 'https://www.linkedin.com/company/krios-construcoes/', label: 'LinkedIn' },
+  { icon: FaInstagram, href: 'https://www.instagram.com/kriosconstrucoes/', label: 'Instagram' },
+  { icon: FaFacebook, href: 'https://www.facebook.com/kriosConstrucoes', label: 'Facebook' },
 ]
 
 const contactInfo = [
