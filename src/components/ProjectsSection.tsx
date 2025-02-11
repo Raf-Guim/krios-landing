@@ -1,72 +1,29 @@
 'use client'
 
-// import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { projectsData } from '@/data/projects'
 import ProjectCarousel from './ProjectCarousel'
 
-// const categories = ['Residenciais', 'Industriais', 'Comerciais']
-
+// Convert the project data into the format needed for the projects section
 const projects = {
-  Residenciais: [
-    { 
-      id: 'residencial-1',
-      title: 'Condomínio Luxury',
-      description: 'Empreendimento residencial de alto padrão',
-      image: '/projects/residencial-1.png',
-    },
-    { 
-      id: 'residencial-2',
-      title: 'Residencial Park',
-      description: 'Conjunto de casas com área de lazer',
-      image: '/projects/residencial-2.png',
-    },
-    { 
-      id: 'residencial-3',
-      title: 'Edifício Aurora',
-      description: 'Torre residencial moderna',
-      image: '/projects/residencial-3.png',
-    },
-  ],
-  Industriais: [
-    { 
-      id: 'industrial-1',
-      title: 'Complexo Industrial',
-      description: 'Galpão industrial com escritórios',
-      image: '/projects/industrial-1.png',
-    },
-    { 
-      id: 'industrial-2',
-      title: 'Centro Logístico',
-      description: 'Centro de distribuição automatizado',
-      image: '/projects/industrial-2.png',
-    },
-    { 
-      id: 'industrial-3',
-      title: 'Fábrica Modelo',
-      description: 'Instalação industrial sustentável',
-      image: '/projects/industrial-3.png',
-    },
-  ],
-  Comerciais: [
-    { 
-      id: 'comercial-1',
-      title: 'Centro Empresarial',
-      description: 'Edifício comercial premium',
-      image: '/projects/comercial-1.png',
-    },
-    { 
-      id: 'comercial-2',
-      title: 'Shopping Center',
-      description: 'Centro comercial moderno',
-      image: '/projects/comercial-2.png',
-    },
-    { 
-      id: 'comercial-3',
-      title: 'Office Tower',
-      description: 'Torre de escritórios corporativos',
-      image: '/projects/comercial-3.png',
-    },
-  ],
+  Residenciais: Object.entries(projectsData.residenciais).map(([id, project]) => ({
+    id,
+    title: project.title,
+    description: project.description,
+    image: project.images[0],
+  })),
+  Industriais: Object.entries(projectsData.industriais).map(([id, project]) => ({
+    id,
+    title: project.title,
+    description: project.description,
+    image: project.images[0],
+  })),
+  Comerciais: Object.entries(projectsData.comerciais).map(([id, project]) => ({
+    id,
+    title: project.title,
+    description: project.description,
+    image: project.images[0],
+  })),
 }
 
 export default function ProjectsSection() {

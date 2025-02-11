@@ -3,9 +3,10 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 
 const navItems = [
-  { label: 'Início', href: '#hero' },
   { label: 'Pilares', href: '#pillars' },
   { label: 'Serviços', href: '#services' },
   { label: 'Projetos', href: '#projects' },
@@ -14,6 +15,8 @@ const navItems = [
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const pathname = usePathname()
+  const isMainPage = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,26 +36,48 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#hero" className="flex items-center">
-            <Image
-              src="/logo-3.svg"
-              alt="Krios Logo"
-              width={120}
-              height={40}
-              className={`transition-all duration-300 `}
-            />
-          </a>
+          {isMainPage ? (
+            <a href="#hero" className="flex items-center">
+              <Image
+                src="/logo-3.svg"
+                alt="Krios Logo"
+                width={120}
+                height={40}
+                className="transition-all duration-300"
+              />
+            </a>
+          ) : (
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/logo-3.svg"
+                alt="Krios Logo"
+                width={120}
+                height={40}
+                className="transition-all duration-300"
+              />
+            </Link>
+          )}
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary text-white`}
-              >
-                {item.label}
-              </a>
+              isMainPage ? (
+                <a
+                  key={index}
+                  href={item.href}
+                  className="text-sm font-medium transition-colors hover:text-primary text-white"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={index}
+                  href={`/${item.href}`}
+                  className="text-sm font-medium transition-colors hover:text-primary text-white"
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
           </nav>
 
