@@ -5,9 +5,31 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Krios Construções - Excelência em Construção Civil',
-  description: 'Transformamos espaços com qualidade, inovação e compromisso. Especialistas em construção civil, reformas e projetos personalizados.',
+  title: 'Krios Engenharia',
+  description: 'Krios Engenharia - Soluções em engenharia civil',
   keywords: 'construção civil, reformas, projetos, construção comercial, construção residencial, construção industrial',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+    other: [
+      {
+        rel: 'apple-touch-icon',
+        url: '/apple-icon.png',
+      },
+    ],
+  },
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Krios Engenharia',
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
 }
 
 export default function RootLayout({

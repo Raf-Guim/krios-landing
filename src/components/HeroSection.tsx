@@ -58,7 +58,9 @@ export default function HeroSection() {
 
           {/* CTA Button */}
           <motion.a
-            href="tel:+55 (11) 95582-5695"
+            href="https://wa.me/5511955825695?text=Olá! Vim pelo site da Krios e gostaria de mais informações."
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
