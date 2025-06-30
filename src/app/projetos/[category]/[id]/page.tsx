@@ -1,22 +1,16 @@
 'use client'
 
-// import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
-import { useState } from 'react'
 import { projectsData } from '@/data/projects'
 import Header from '@/components/Header'
 
 export default function ProjectPage() {
   const params = useParams()
-  const [selectedImage, setSelectedImage] = useState(0)
-  // Convert category to lowercase since our data uses lowercase keys
   const category = (params.category as string).toLowerCase() as keyof typeof projectsData
   const projectId = params.id as string
-  console.log(`category: ${category}, projectId: ${projectId}`);
   
-  // Add type safety check
   if (!(category in projectsData) || !(projectId in projectsData[category])) {
     return (
       <>
@@ -37,88 +31,51 @@ export default function ProjectPage() {
 
   return (
     <>
-    <Header />
-    <div className="min-h-screen bg-secondary pt-20 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
-        <Link href={`/projetos/${category}`} className="inline-block mb-8 text-primary hover:text-primary/80 mt-8">
-          ← Voltar para {category}
-        </Link>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <Header />
+      <div className="min-h-screen bg-secondary pt-20 px-4 md:px-8">
+        <div className="max-w-6xl mx-auto">
+          <Link href={`/projetos/${category}`} className="inline-block mb-8 text-primary hover:text-primary/80 mt-8">
+            ← Voltar para {category}
+          </Link>
+          
+          {/* Project Header */}
+          <div className="mb-12 text-center max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold text-dark mb-6">{project.title}</h1>
+            <p className="text-gray-600 text-lg">{project.description}</p>
+          </div>
+          
           {/* Image Gallery */}
-          <div>
-            <div className="relative aspect-video mb-4">
-              <Image
-                src={project.images[selectedImage]}
-                alt={project.title}
-                fill
-                className="object-cover rounded-lg"
-              />
-            </div>
-            <div className="grid grid-cols-5 gap-2">
-              {project.images.map((image, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedImage(index)}
-                  className={`relative aspect-video ${
-                    selectedImage === index ? 'ring-2 ring-primary' : ''
-                  }`}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {project.images.map((image, index) => {
+              // Define diferentes classes para cada imagem baseado no índice
+              const imageClasses = [
+                'sm:col-span-2 lg:col-span-3 aspect-[21/9]', // Primeira imagem - panorâmica
+                'aspect-[4/3]', // Segunda imagem
+                'aspect-[4/3]', // Terceira imagem
+                'aspect-[4/3]', // Quarta imagem
+                'aspect-[4/3]', // Quinta imagem
+                'aspect-[4/3]', // Sexta imagem
+              ]
+
+              return (
+                <div 
+                  key={index} 
+                  className={`relative ${imageClasses[index] || 'aspect-[4/3]'} overflow-hidden rounded-lg`}
                 >
                   <Image
                     src={image}
                     alt={`${project.title} - Image ${index + 1}`}
                     fill
-                    className="object-cover rounded-lg"
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    priority={index === 0}
                   />
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Project Details */}
-          <div>
-            <h1 className="text-4xl font-bold text-dark mb-4">{project.title}</h1>
-            <p className="text-gray-600 mb-6">{project.description}</p>
-            
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              <div>
-                <h3 className="font-semibold text-dark">Localização</h3>
-                <p className="text-gray-600">{project.location}</p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-dark">Área</h3>
-                <p className="text-gray-600">{project.area}</p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-dark">Ano</h3>
-                <p className="text-gray-600">{project.year}</p>
-              </div>
-            </div>
-
-            <div className="mb-6">
-              <h3 className="font-semibold text-dark mb-2">Características</h3>
-              <ul className="list-disc list-inside text-gray-600">
-                {project.features.map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-dark mb-2">Especificações</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {Object.entries(project.specifications).map(([key, value]) => (
-                  <div key={key}>
-                    <p className="font-medium text-dark">{key}</p>
-                    <p className="text-gray-600">{value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>
-    </div>
     </>
   )
 }
