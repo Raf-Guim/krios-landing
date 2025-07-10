@@ -4,18 +4,23 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 const partners = [
-  { name: 'Partner 1', logo: '/partners/1.png' },
-  { name: 'Partner 2', logo: '/partners/2.png' },
-  { name: 'Partner 3', logo: '/partners/3.png' },
-  { name: 'Partner 4', logo: '/partners/4.png' },
-  { name: 'Partner 5', logo: '/partners/5.png' },
-  { name: 'Partner 6', logo: '/partners/6.png' },
-  { name: 'Partner 6', logo: '/partners/7.png' },
-  { name: 'Partner 6', logo: '/partners/8.png' },
-  { name: 'Partner 6', logo: '/partners/9.png' },
-  { name: 'Partner 6', logo: '/partners/10.png' },
-  { name: 'Partner 6', logo: '/partners/11.png' },
-  { name: 'Partner 6', logo: '/partners/12.png' },
+  { name: 'Carrefour', logo: '/partners/carrefour.png' },
+  { name: 'Grupo Vamos', logo: '/partners/grupoVamos.png' },
+  { name: 'Razzo', logo: '/partners/razzo.png' },
+  { name: 'Rede Voa', logo: '/partners/redeVoa.png' },
+  { name: 'Oxxo', logo: '/partners/oxxo.png' },
+  { name: 'GPA', logo: '/partners/gpa.png' },
+  { name: 'Shopee', logo: '/partners/shopee.png' },
+  { name: 'Flex Aero', logo: '/partners/flexAero.png' },
+  { name: 'Via Varejo', logo: '/partners/viaVarejo.png' },
+  { name: 'Mercurio', logo: '/partners/mercurio.png' },
+  { name: 'Grupo Dpsp', logo: '/partners/grupoDpsp.png' },
+  { name: 'Heineken', logo: '/partners/heineken.png' },
+  { name: 'Grupo Partage', logo: '/partners/grupoPartage.svg' },
+  { name: 'Villefort', logo: '/partners/villefort.png' },
+  { name: 'Auto Glass', logo: '/partners/autoglass.png' },
+  { name: 'Sicoob', logo: '/partners/sicoob.png' },
+  { name: 'Pague Menos', logo: '/partners/pagueMenos.png' },
 ]
 
 export default function PartnersSection() {
@@ -42,7 +47,7 @@ export default function PartnersSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex items-center justify-center p-4 bg-white rounded-lg hover:shadow-lg transition-shadow"
+              className="flex items-center justify-center p-4 bg-white rounded-lg hover:shadow-lg transition-shadow h-[100px]"
             >
               <Image
                 src={partner.logo}

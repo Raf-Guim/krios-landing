@@ -31,7 +31,7 @@ export default function Header() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-dark backdrop-blur-sm`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-secondary backdrop-blur-sm`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
@@ -39,9 +39,9 @@ export default function Header() {
           {isMainPage ? (
             <a href="#hero" className="flex items-center">
               <Image
-                src="/logo-3.svg"
+                src="/1509_18_IdentidadeVisual_Krios_2024_REV3_Aprovada2025_curva.svg"
                 alt="Krios Logo"
-                width={120}
+                width={300}
                 height={40}
                 className="transition-all duration-300"
               />
@@ -65,7 +65,7 @@ export default function Header() {
                 <a
                   key={index}
                   href={item.href}
-                  className="text-sm font-medium transition-colors hover:text-primary text-white"
+                  className="text-sm font-medium transition-colors hover:text-primary text-dark"
                 >
                   {item.label}
                 </a>
@@ -73,7 +73,7 @@ export default function Header() {
                 <Link
                   key={index}
                   href={`/${item.href}`}
-                  className="text-sm font-medium transition-colors hover:text-primary text-white"
+                  className="text-sm font-medium transition-colors hover:text-primary text-dark"
                 >
                   {item.label}
                 </Link>
@@ -87,7 +87,7 @@ export default function Header() {
             aria-label="Menu"
           >
             <svg
-              className={`w-6 h-6 ${isScrolled ? 'text-dark' : 'text-white'}`}
+              className={`w-6 h-6 ${isScrolled ? 'text-dark' : 'text-dark'}`}
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"

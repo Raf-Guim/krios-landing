@@ -3,13 +3,16 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
+import { useState } from 'react'
 import { projectsData } from '@/data/projects'
 import Header from '@/components/Header'
+import ImageModal from '@/components/ImageModal'
 
 export default function ProjectPage() {
   const params = useParams()
   const category = (params.category as string).toLowerCase() as keyof typeof projectsData
   const projectId = params.id as string
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
   
   if (!(category in projectsData) || !(projectId in projectsData[category])) {
     return (
@@ -28,6 +31,26 @@ export default function ProjectPage() {
   }
 
   const project = projectsData[category][projectId]
+
+  const handleImageClick = (index: number) => {
+    setSelectedImageIndex(index)
+  }
+
+  const handleCloseModal = () => {
+    setSelectedImageIndex(null)
+  }
+
+  const handleNextImage = () => {
+    if (selectedImageIndex !== null && selectedImageIndex < project.images.length - 1) {
+      setSelectedImageIndex(selectedImageIndex + 1)
+    }
+  }
+
+  const handlePreviousImage = () => {
+    if (selectedImageIndex !== null && selectedImageIndex > 0) {
+      setSelectedImageIndex(selectedImageIndex - 1)
+    }
+  }
 
   return (
     <>
@@ -60,7 +83,8 @@ export default function ProjectPage() {
               return (
                 <div 
                   key={index} 
-                  className={`relative ${imageClasses[index] || 'aspect-[4/3]'} overflow-hidden rounded-lg`}
+                  className={`relative ${imageClasses[index] || 'aspect-[4/3]'} overflow-hidden rounded-lg cursor-pointer`}
+                  onClick={() => handleImageClick(index)}
                 >
                   <Image
                     src={image}
@@ -74,6 +98,18 @@ export default function ProjectPage() {
               )
             })}
           </div>
+
+          {/* Modal de Imagem */}
+          {selectedImageIndex !== null && (
+            <ImageModal
+              images={project.images}
+              currentIndex={selectedImageIndex}
+              onClose={handleCloseModal}
+              onNext={handleNextImage}
+              onPrevious={handlePreviousImage}
+              title={project.title}
+            />
+          )}
         </div>
       </div>
     </>

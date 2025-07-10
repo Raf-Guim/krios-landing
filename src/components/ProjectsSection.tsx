@@ -45,7 +45,7 @@ export default function ProjectsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -68,11 +68,11 @@ export default function ProjectsSection() {
             <ProjectCarousel
               projects={projects.Industriais}
               category="Industriais"
-              title="Projetos Industriais"
+              title="Projetos Industriais e Varejo"
             />
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -83,7 +83,7 @@ export default function ProjectsSection() {
               category="Comerciais"
               title="Projetos Comerciais"
             />
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>

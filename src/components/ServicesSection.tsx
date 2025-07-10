@@ -1,12 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaBuilding, FaPencilRuler, FaTools } from 'react-icons/fa'
+import { FaBuilding, FaPencilRuler } from 'react-icons/fa'
 
 const services = [
   {
     icon: FaBuilding,
-    title: 'Construção e Reformas',
+    title: 'Construção, Reformas e Instalações',
     description: 'Máxima qualidade e excelência, seja em grandes empreendimentos ou projetos de menor escala.',
     image: '/services/construction.jpg'
   },
@@ -15,12 +15,6 @@ const services = [
     title: 'Projetos',
     description: 'Planejamento otimizado, com execução segura e eficiente para transformar ideias em realidade.',
     image: '/services/projects.jpg'
-  },
-  {
-    icon: FaTools,
-    title: 'Instalações',
-    description: 'Instalações otimizadas e organizadas, com serviços executados de maneira segura e objetiva.',
-    image: '/services/installations.jpg'
   },
 ]
 
@@ -43,7 +37,7 @@ export default function ServicesSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}

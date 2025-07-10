@@ -25,7 +25,7 @@ const contactInfo = [
   {
     icon: FaMapMarkerAlt,
     label: 'Endereço',
-    value: 'R. Cap. Cassiano Ricardo de Toledo, 200 - Chácara Urbana, Jundiaí - SP, 13201-840',
+    value: 'Rua Capitão Cassiano Ricardo de Toledo, 191, sala 706 - Chácara Urbana, Jundiaí - SP, 13201-840',
     href: 'https://maps.app.goo.gl/ciTuc1FnEXGFqDwx5',
   },
 ]
@@ -107,7 +107,7 @@ export default function ContactSection() {
             transition={{ duration: 0.6 }}
             className="relative aspect-square md:aspect-video w-full rounded-lg overflow-hidden"
           >
-            <iframe
+            {/* <iframe
               src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=R.%20Cap.%20Cassiano%20Ricardo%20de%20Toledo,%20200%20-%20Ch%C3%A1cara%20Urbana,%20Jundia%C3%AD%20-%20SP,%2013201-840+(Krios%20Constru%C3%B5es)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
               width="100%"
               height="100%"
@@ -115,7 +115,14 @@ export default function ContactSection() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-            />
+            /> */}
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.6428944456143!2d-46.89583272434216!3d-23.18323014780986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf2688ab6108b5%3A0xa115e8721f001bcd!2sR.%20Cap.%20Cassiano%20Ricardo%20de%20Toledo%2C%20191%20-%20706%20-%20Ch%C3%A1cara%20Urbana%2C%20Jundia%C3%AD%20-%20SP%2C%2013201-840!5e0!3m2!1spt-BR!2sbr!4v1752169504607!5m2!1spt-BR!2sbr"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"/>
             {/* <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=R.%20Cap.%20Cassiano%20Ricardo%20de%20Toledo,%20200%20-%20Ch%C3%A1cara%20Urbana,%20Jundia%C3%AD%20-%20SP,%2013201-840+(Krios%20Constru%C3%B5es)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps map</a></iframe></div> */}
           </motion.div>
         </div>

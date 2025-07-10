@@ -5,7 +5,7 @@ import { FaWhatsapp } from 'react-icons/fa'
 
 const stats = [
   { label: 'Obras entregues', value: '150+' },
-  { label: 'M² construídos', value: '500k+' },
+  { label: 'M² construídos', value: '300k+' },
   { label: 'Clientes recorrentes', value: '95%+' },
 ]
 
