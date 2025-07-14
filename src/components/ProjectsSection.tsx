@@ -18,12 +18,12 @@ const projects = {
     description: project.description,
     image: project.images[0],
   })),
-  Comerciais: Object.entries(projectsData.comerciais).map(([id, project]) => ({
-    id,
-    title: project.title,
-    description: project.description,
-    image: project.images[0],
-  })),
+  // Comerciais: Object.entries(projectsData.comerciais).map(([id, project]) => ({
+  //   id,
+  //   title: project.title,
+  //   description: project.description,
+  //   image: project.images[0],
+  // })),
 }
 
 export default function ProjectsSection() {

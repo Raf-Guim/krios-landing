@@ -9,6 +9,7 @@ import ServicesSection from '@/components/ServicesSection'
 import ProjectsSection from '@/components/ProjectsSection'
 import PartnersSection from '@/components/PartnersSection'
 import ContactSection from '@/components/ContactSection'
+import InstagramFeed from '@/components/InstagramFeed'
 
 export default function Home() {
   useEffect(() => {
@@ -30,6 +31,7 @@ export default function Home() {
         <HeroSection />
         <PillarsSection />
         <ServicesSection />
+        {/* <InstagramFeed /> */}
         <ProjectsSection />
         <PartnersSection />
         <ContactSection />

@@ -31,7 +31,7 @@ export default function Header() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-secondary backdrop-blur-sm`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-dark backdrop-blur-sm`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
@@ -39,10 +39,10 @@ export default function Header() {
           {isMainPage ? (
             <a href="#hero" className="flex items-center">
               <Image
-                src="/1509_18_IdentidadeVisual_Krios_2024_REV3_Aprovada2025_curva.svg"
+                src="/Ativo_9.png"
                 alt="Krios Logo"
-                width={300}
-                height={40}
+                width={125}
+                height={10}
                 className="transition-all duration-300"
               />
             </a>
@@ -65,7 +65,7 @@ export default function Header() {
                 <a
                   key={index}
                   href={item.href}
-                  className="text-sm font-medium transition-colors hover:text-primary text-dark"
+                  className="text-sm font-medium transition-colors hover:text-primary text-white"
                 >
                   {item.label}
                 </a>

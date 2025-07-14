@@ -25,26 +25,6 @@ export const projectsData: ProjectsData = {
         '/projects/camburiu5.png',
       ],
     },
-    florianopolis: {
-      title: 'Casa de Praia em Florianópolis',
-      description:
-        'Projeto e execução de residência contemporânea com 450m², integrando ambientes internos e externos com amplos painéis de vidro e acabamentos naturais.',
-      images: [
-        '/projects/floripa1.png',
-        '/projects/floripa2.png',
-        '/projects/floripa3.png',
-      ],
-    },
-    serra: {
-      title: 'Casa de Praia em Serra',
-      description:
-        'Projeto e execução de residência contemporânea com 450m², integrando ambientes internos e externos com amplos painéis de vidro e acabamentos naturais.',
-      images: [
-        '/projects/serra1.png',
-        '/projects/serra2.png',
-        '/projects/serra3.png',
-      ],
-    },
   },
   industriais: {
     'galpao-industrial': {
@@ -54,17 +34,6 @@ export const projectsData: ProjectsData = {
         '/projects/industrial1.jpg',
         '/projects/industrial2.jpg',
         '/projects/industrial3.jpg',
-      ],
-    },
-  },
-  comerciais: {
-    'centro-empresarial': {
-      title: 'Centro Empresarial',
-      description: 'Edifício comercial com conceito open space',
-      images: [
-        '/projects/comercial1.jpg',
-        '/projects/comercial2.jpg',
-        '/projects/comercial3.jpg',
       ],
     },
   },
