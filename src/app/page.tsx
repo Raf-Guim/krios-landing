@@ -9,7 +9,7 @@ import ServicesSection from '@/components/ServicesSection'
 import ProjectsSection from '@/components/ProjectsSection'
 import PartnersSection from '@/components/PartnersSection'
 import ContactSection from '@/components/ContactSection'
-import InstagramFeed from '@/components/InstagramFeed'
+// import InstagramFeed from '@/components/InstagramFeed'
 
 export default function Home() {
   useEffect(() => {
