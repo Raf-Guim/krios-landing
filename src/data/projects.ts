@@ -25,6 +25,24 @@ export const projectsData: ProjectsData = {
         '/projects/camburiu5.png',
       ],
     },
+    'alta-vista-jundiai': {
+      title: 'Alta Vista Jundiaí',
+      description: 'Apartamento reformado luxuoso',
+      images: [
+        '/projects/alta-vista-jundiai1.jpg',
+        '/projects/alta-vista-jundiai2.jpg',
+        '/projects/alta-vista-jundiai3.jpg',
+        '/projects/alta-vista-jundiai4.jpg',
+        '/projects/alta-vista-jundiai5.jpg',
+        '/projects/alta-vista-jundiai6.jpg',
+        '/projects/alta-vista-jundiai7.jpg',
+        '/projects/alta-vista-jundiai8.jpg',
+        '/projects/alta-vista-jundiai9.jpg',
+        '/projects/alta-vista-jundiai10.jpg',
+        '/projects/alta-vista-jundiai11.jpg',
+        '/projects/alta-vista-jundiai12.jpg',
+      ],
+    },
   },
   industriais: {
     'academia-mormai-jundiai': {
