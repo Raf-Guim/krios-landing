@@ -4,25 +4,34 @@ import { motion } from 'framer-motion'
 import { projectsData } from '@/data/projects'
 import ProjectCarousel from './ProjectCarousel'
 
+const PLACEHOLDER_IMAGE = '/projects/placeholder.jpg'; // You can change this path to any placeholder image you have
+
+// Helper to get the main image from the new images structure
+function getMainImage(images: { after?: string[]; before?: string[] }) {
+  if (images.after && images.after.length > 0) return images.after[0];
+  if (images.before && images.before.length > 0) return images.before[0];
+  return PLACEHOLDER_IMAGE;
+}
+
 // Convert the project data into the format needed for the projects section
 const projects = {
   Residenciais: Object.entries(projectsData.residenciais).map(([id, project]) => ({
     id,
     title: project.title,
     description: project.description,
-    image: project.images[0],
+    image: getMainImage(project.images),
   })),
   Industriais: Object.entries(projectsData.industriais).map(([id, project]) => ({
     id,
     title: project.title,
     description: project.description,
-    image: project.images[0],
+    image: getMainImage(project.images),
   })),
   // Comerciais: Object.entries(projectsData.comerciais).map(([id, project]) => ({
   //   id,
   //   title: project.title,
   //   description: project.description,
-  //   image: project.images[0],
+  //   image: getMainImage(project.images),
   // })),
 }
 

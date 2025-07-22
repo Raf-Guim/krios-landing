@@ -32,6 +32,20 @@ export default function ProjectPage() {
 
   const project = projectsData[category][projectId]
 
+  // Prepare gallery sections and flat image list for modal
+  const hasBefore = project.images.before && project.images.before.length > 0;
+  const hasAfter = project.images.after && project.images.after.length > 0;
+
+  // Build the gallery display and flat image list for modal
+  const gallerySections: { title?: string; images: string[] }[] = [
+    ...(hasBefore ? [{ title: 'Antes', images: project.images.before! }] : []),
+    ...(hasAfter ? [{ title: hasBefore ? 'Depois' : undefined, images: project.images.after! }] : []),
+  ];
+  const flatImages: string[] = [
+    ...(hasBefore ? project.images.before! : []),
+    ...(hasAfter ? project.images.after! : []),
+  ];
+
   const handleImageClick = (index: number) => {
     setSelectedImageIndex(index)
   }
@@ -41,7 +55,7 @@ export default function ProjectPage() {
   }
 
   const handleNextImage = () => {
-    if (selectedImageIndex !== null && selectedImageIndex < project.images.length - 1) {
+    if (selectedImageIndex !== null && selectedImageIndex < flatImages.length - 1) {
       setSelectedImageIndex(selectedImageIndex + 1)
     }
   }
@@ -55,7 +69,7 @@ export default function ProjectPage() {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-secondary pt-20 px-4 md:px-8">
+      <div className="bg-secondary pt-20 px-4 md:px-8 pb-20">
         <div className="max-w-6xl mx-auto">
           <Link href={`/projetos/${category}`} className="inline-block mb-8 text-primary hover:text-primary/80 mt-8">
             ← Voltar para {category}
@@ -68,41 +82,51 @@ export default function ProjectPage() {
           </div>
           
           {/* Image Gallery */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {project.images.map((image, index) => {
-              // Define diferentes classes para cada imagem baseado no índice
-              const imageClasses = [
-                'sm:col-span-2 lg:col-span-3 aspect-[21/9]', // Primeira imagem - panorâmica
-                'aspect-[4/3]', // Segunda imagem
-                'aspect-[4/3]', // Terceira imagem
-                'aspect-[4/3]', // Quarta imagem
-                'aspect-[4/3]', // Quinta imagem
-                'aspect-[4/3]', // Sexta imagem
-              ]
-
-              return (
-                <div 
-                  key={index} 
-                  className={`relative ${imageClasses[index] || 'aspect-[4/3]'} overflow-hidden rounded-lg cursor-pointer`}
-                  onClick={() => handleImageClick(index)}
-                >
-                  <Image
-                    src={image}
-                    alt={`${project.title} - Image ${index + 1}`}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    priority={index === 0}
-                  />
-                </div>
-              )
-            })}
-          </div>
+          {gallerySections.map((section, sectionIdx) => (
+            <div key={sectionIdx} className="mb-8">
+              {section.title && (
+                <h2 className="text-2xl font-semibold text-dark mb-4">{section.title}</h2>
+              )}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {section.images.map((image, idx) => {
+                  // Calculate the flat index for modal
+                  const flatIndex =
+                    gallerySections
+                      .slice(0, sectionIdx)
+                      .reduce((acc, s) => acc + s.images.length, 0) + idx;
+                  const imageClasses = [
+                    'sm:col-span-2 lg:col-span-3 aspect-[21/9]',
+                    'aspect-[4/3]',
+                    'aspect-[4/3]',
+                    'aspect-[4/3]',
+                    'aspect-[4/3]',
+                    'aspect-[4/3]',
+                  ];
+                  return (
+                    <div
+                      key={idx}
+                      className={`relative ${imageClasses[idx] || 'aspect-[4/3]'} overflow-hidden rounded-lg cursor-pointer`}
+                      onClick={() => handleImageClick(flatIndex)}
+                    >
+                      <Image
+                        src={image}
+                        alt={`${project.title} - Image ${flatIndex + 1}`}
+                        fill
+                        className="object-cover hover:scale-105 transition-transform duration-300"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        priority={flatIndex === 0}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
 
           {/* Modal de Imagem */}
           {selectedImageIndex !== null && (
             <ImageModal
-              images={project.images}
+              images={flatImages}
               currentIndex={selectedImageIndex}
               onClose={handleCloseModal}
               onNext={handleNextImage}

@@ -19,6 +19,13 @@ function isValidCategory(category: string): category is CategoryType {
   return category in categoryTitles
 }
 
+// Helper to get the main image from the new images structure
+function getMainImage(images: { after?: string[]; before?: string[] }) {
+  if (images.after && images.after.length > 0) return images.after[0];
+  if (images.before && images.before.length > 0) return images.before[0];
+  return '/projects/placeholder.jpg';
+}
+
 export default function CategoryPage() {
   const params = useParams()
   const categoryParam = (params.category as string).toLowerCase()
@@ -62,7 +69,7 @@ export default function CategoryPage() {
   const categoryProjects = Object.entries(projectsData[category]).map(([id, project]) => ({
     id,
     ...project,
-    image: project.images[0] // Use the first image as the main image
+    image: getMainImage(project.images) // Use the first image as the main image
   }))
 
   console.log(`projectsData: ${projectsData[category]}, category: ${category}, categoryProjects:`, categoryProjects)
