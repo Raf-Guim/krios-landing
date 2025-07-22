@@ -27,13 +27,15 @@ export const projectsData: ProjectsData = {
     },
   },
   industriais: {
-    'galpao-industrial': {
-      title: 'Galpão Industrial',
-      description: 'Complexo industrial moderno com área administrativa',
+    'academia-mormai-jundiai': {
+      title: 'Academia Mormai Jundiaí',
+      description: 'Academia com área administrativa e de ginástica',
       images: [
-        '/projects/industrial1.jpg',
-        '/projects/industrial2.jpg',
-        '/projects/industrial3.jpg',
+        '/projects/academia-mormai-jundiai1.jpg',
+        '/projects/academia-mormai-jundiai2.jpg',
+        '/projects/academia-mormai-jundiai3.jpg',
+        '/projects/academia-mormai-jundiai4.jpg',
+        '/projects/academia-mormai-jundiai5.jpg',
       ],
     },
   },
