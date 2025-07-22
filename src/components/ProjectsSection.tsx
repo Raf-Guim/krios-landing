@@ -26,6 +26,8 @@ const projects = {
   // })),
 }
 
+console.log(projects)
+
 export default function ProjectsSection() {
   return (
     <section id="projects" className="py-20 bg-white">

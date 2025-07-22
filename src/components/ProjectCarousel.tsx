@@ -14,7 +14,7 @@ interface Project {
 
 interface ProjectCarouselProps {
   projects: Project[]
-  category: 'Residenciais' | 'Industriais' | 'Comerciais'
+  category: 'Residenciais' | 'Industriais'
   title: string
 }
 
