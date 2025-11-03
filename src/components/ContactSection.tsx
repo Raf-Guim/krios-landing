@@ -13,14 +13,8 @@ const contactInfo = [
   {
     icon: FaPhone,
     label: 'Telefone',
-    value: '+55 11 99760-8088',
-    href: 'tel:+55 11 99760-8088',
-  },
-  {
-    icon: FaPhone,
-    label: 'Telefone',
-    value: '+55 34 9912-6895',
-    href: 'tel:+55 34 9912-6895',
+    value: '+55 11 95582-5696',
+    href: 'tel:+55 11 95582-5696',
   },
   {
     icon: FaEnvelope,
